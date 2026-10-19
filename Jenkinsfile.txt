@@ -1,1 +1,27 @@
-run this file
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Build stage started'
+                sh 'python3 --version'
+                sh 'python3 f1.py'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Test stage started'
+                sh 'python3 f2.py'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploy stage started'
+                sh 'python3 f3.py'
+            }
+        }
+    }
+}
